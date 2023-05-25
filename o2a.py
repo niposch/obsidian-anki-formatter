@@ -11,15 +11,6 @@ strings_to_replace = [
     ("\[\[.+?\|(.+?)\]\]", "."), # obsidian link with alias
     (">.+?", "."), # get rid of blockquotes
 ]
-
-inp = ""
-
-try:
-    while True:
-        inp += input() + "\n"
-except KeyboardInterrupt:
-    pass
-
 import re
 
 
@@ -37,6 +28,16 @@ def replace_all(inp, strings_to_replace):
         inp = re.sub(replace[0], extractor_factory(prefix, postfix), inp)
     return inp
 
-print("========================================")
+if __name__ == "__main__":
+    inp = ""
 
-print(replace_all(inp, strings_to_replace))
+    try:
+        while True:
+            inp += input() + "\n"
+    except KeyboardInterrupt:
+        pass
+
+
+    print("========================================")
+
+    print(replace_all(inp, strings_to_replace))
