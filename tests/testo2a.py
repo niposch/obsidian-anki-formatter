@@ -11,7 +11,8 @@ test_cases = [
     ("this > isn't a block quote", "this > isn't a block quote"),
     ("equals in $< latex >$ should remain", "equals in \(< latex >\) should remain"),
     ("double {{ curlies }} should be separated by a space", "double { { curlies } } should be separated by a space"),
-    ("Latex should be split at equal signs $x = 2$", "Latex should be split at equal signs \(x \) \(=\) \( 2\)"),
+    ("Latex should be split at equal signs $x=2$", "Latex should be split at equal signs \(x\) \(=\) \(2\)"),
+    ("$$a=b$$", "\n\(a\) \(=\) \(b\)\n"),
 ]
 class TestReplaceAll(unittest.TestCase):
     @parameterized.expand(test_cases)

@@ -5,8 +5,8 @@ from __future__ import annotations
 # if multiple capture groups are used, they can be inserted via $1, $2, etc.
 # if dollar signs are supposed to be inserted, they need to be escaped with a backslash
 strings_to_replace = [
-    (r"\$\$(.+)=(.+)\$\$", "\n\$$1\$ \$=\$ \$$2\$\n"), # split multiline latex at equal signs and turn into single line latex
-    (r"\$(.+)=(.+)\$", "\$$1\$ \$=\$ \$$2\$"), # split latex at equal signs
+    (r"\$\$(.+?)=(.+?)\$\$", "\n\$$1\$ \$=\$ \$$2\$\n"), # split multiline latex at equal signs and turn into single line latex
+    (r"(?<!\$)\$([^$ ]+?)=([^$ ]+?)\$(?!\$)", "\$$1\$ \$=\$ \$$2\$"), # split latex at equal signs
     ("\$\$(.+?)\$\$" , "\[.\]"), # mathjax block
     ("\$(.+?)\$" , "\(.\)"), # mathjax inline
     # uncomment the following lines to convert input to anki latex 
